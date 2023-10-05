@@ -1,0 +1,12 @@
+[id^="custom-alert"] {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  width: 300px;
+}
+
+[id^="custom-alert"]:not(:last-child) {
+    margin-bottom: 10px;
+
+}
