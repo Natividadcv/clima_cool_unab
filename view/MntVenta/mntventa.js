@@ -1,3 +1,4 @@
+
 var emp_id = $("#EMP_IDx").val();
 var suc_id = $("#SUC_IDx").val();
 var usu_id = $("#USU_IDx").val();
@@ -314,22 +315,51 @@ $(document).on("click", "#btnguardar", function () {
               doc_id: doc_id,
             },
             function (data) {
-              swal.fire({
-                title: "Venta",
-                text: "Venta registrada Correctamente con Nro: V-" + vent_id,
-                icon: "success",
-                footer:
-                  "<a href='../ViewVenta/?v=" +
-                  vent_id +
-                  "' target='_blank'>Desea ver el Documento?</a>",
-              });
-            }
+                swal.fire({
+                  title: "Venta",
+                  text: "Venta registrada Correctamente con Nro: V-" + vent_id,
+                  icon: "success",
+                  footer:
+                    "<a href='../ViewVenta/?v=" +
+                    vent_id +
+                    "' target='_blank'>Desea ver el Documento?</a>",
+                });
+              }
           );
+          // Llama al servidor Node.js para enviar el correo electrónico
+  fetch('http://localhost:3000/enviarCorreo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      destinatario: cli_correo,
+      asunto: 'Asunto del correo',
+      contenido: 'CLIMA COOL ',data,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      // Puedes manejar la respuesta del servidor aquí si es necesario
+      if (data.success) {
+        // El correo se envió con éxito
+      } else {
+        // Hubo un error al enviar el correo
+      }
+    })
+    .catch((error) => {
+      console.error('Error al enviar el correo electrónico: ' + error);
+    });
         }
       }
     );
   }
 });
+
+
+
+
 
 $(document).on("click", "#btnlimpiar", function () {
   location.reload();
