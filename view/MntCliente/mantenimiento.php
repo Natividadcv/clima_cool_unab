@@ -28,20 +28,25 @@
                         </div>
                     </div>
 
-                    <div class="row gy-2">
-                        <div class="col-md-12">
-                            <div>
-                                <label for="valueInput" class="form-label">Telefono</label>
-                                <input type="text" class="form-control" id="cli_telf" name="cli_telf" maxlength="8" required/>
-                            </div>
-                        </div>
-                    </div>
+                    
+
+                    
 
                     <div class="row gy-2">
                         <div class="col-md-12">
                             <div>
                                 <label for="valueInput" class="form-label">Direccion</label>
                                 <input type="text" class="form-control" id="cli_direcc" name="cli_direcc" required/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row gy-2">
+                        <div class="col-md-12">
+                            <div>
+                                <label for="valueInput" class="form-label">Telefono</label>
+                                <input type="text" class="form-control" id="cli_telfo" name="cli_telfo" required/>
                             </div>
                         </div>
                     </div>

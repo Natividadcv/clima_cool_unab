@@ -121,7 +121,7 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <label for="prov_telf" class="form-label">Telefono</label>
-                                                <input type="text" class="form-control" id="cli_telf" name="cli_telf" placeholder="Telefono" readonly/>
+                                                <input type="text" class="form-control" id="cli_telfo" name="cli_telfo" placeholder="Telefono"/>
                                             </div>
                                         </div>
                                     </div>

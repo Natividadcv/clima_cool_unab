@@ -3,6 +3,9 @@ var emp_id = $("#EMP_IDx").val();
 var suc_id = $("#SUC_IDx").val();
 var usu_id = $("#USU_IDx").val();
 
+
+
+
 $(document).ready(function () {
   $.post(
     "../../controller/venta.php?op=registrar",
@@ -71,7 +74,7 @@ $(document).ready(function () {
           data = JSON.parse(data);
           $("#cli_ruc").val(data.CLI_RUC);
           $("#cli_direcc").val(data.CLI_DIRECC);
-          $("#cli_telf").val(data.CLI_TELF);
+          $("#cli_telfo").val(data.CLI_TELF);
           $("#cli_correo").val(data.CLI_CORREO);
         }
       );
@@ -271,6 +274,7 @@ $(document).on("click", "#btnguardar", function () {
   var cli_ruc = $("#cli_ruc").val();
   var cli_direcc = $("#cli_direcc").val();
   var cli_correo = $("#cli_correo").val();
+  var cli_telefono = $("#cli_telfo").val();
   var vent_coment = $("#vent_coment").val();
   var mon_id = $("#mon_id").val();
 
@@ -310,6 +314,7 @@ $(document).on("click", "#btnguardar", function () {
               cli_ruc: cli_ruc,
               cli_direcc: cli_direcc,
               cli_correo: cli_correo,
+              cli_telefono: cli_telefono,
               vent_coment: vent_coment,
               mon_id: mon_id,
               doc_id: doc_id,
@@ -327,13 +332,14 @@ $(document).on("click", "#btnguardar", function () {
               }
           );
           // Llama al servidor Node.js para enviar el correo electrónico
-  fetch('http://localhost:3000/enviarCorreo', {
+  fetch('http://localhost:3000/enviarCorreoYWhatsapp', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       destinatario: cli_correo,
+      telefono: cli_telefono,
       asunto: 'Asunto del correo',
       contenido: 'CLIMA COOL ',data,
     }),
